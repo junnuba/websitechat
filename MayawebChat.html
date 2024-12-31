@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Messaging Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .embed-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to Maya's Support</h1>
+        <p>If you need any help, feel free to chat with our agent using the chat widget below.</p>
+    </div>
+
+    <!-- Embedded Salesforce Messaging Widget -->
+    <div class="embed-container">
+        <!-- Salesforce Embedded Messaging Script -->
+        <script type='text/javascript'>
+            function initEmbeddedMessaging() {
+                try {
+                    embeddedservice_bootstrap.settings.language = 'en_US'; // Set the language (e.g., 'en-US' for English)
+
+                    embeddedservice_bootstrap.init(
+                        '00DIm000000LGKg', // Your Salesforce organization ID
+                        'NewMayachattest', // The chat widget name you set up in Salesforce
+                        'https://onevoyager--afpoc.sandbox.my.site.com/ESWNewMayachattest1735630907687', // Widget URL
+                        {
+                            scrt2URL: 'https://onevoyager--afpoc.sandbox.my.salesforce-scrt.com' // Script URL for the embedded messaging
+                        }
+                    );
+                } catch (err) {
+                    console.error('Error loading Embedded Messaging: ', err);
+                }
+            };
+        </script>
+
+        <!-- Include the external script for the messaging widget -->
+        <script type='text/javascript' src='https://onevoyager--afpoc.sandbox.my.site.com/ESWNewMayachattest1735630907687/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+    </div>
+
+</body>
+</html>
